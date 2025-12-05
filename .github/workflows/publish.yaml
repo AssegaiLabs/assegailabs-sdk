@@ -20,7 +20,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-          registry-url: 'https://registry.npmjs.org' # MUST BE HERE
+          # REMOVED: registry-url. 
+          # Keeping this forces setup-node to create a .npmrc that expects 
+          # a static token, which conflicts with OIDC/Provenance.
       
       - name: Install dependencies
         run: npm ci
@@ -39,8 +41,7 @@ jobs:
           echo "✅ All build outputs present"
       
       - name: Publish to npm (Trusted Publishing)
+        # Provenance automatically handles the token exchange via OIDC
         run: npm publish --provenance --access public
-        env:
-          # REQUIRED: This allows setup-node to write the .npmrc. 
-          # NPM ignores the actual value in favor of OIDC, but the variable must exist.
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # REMOVED: env / NODE_AUTH_TOKEN.
+        # Npm will generate the necessary token internally using the OIDC identity.
