@@ -1,5 +1,5 @@
 # @assegailabs/sdk
-[![CI](https://github.com/AssegaiLabs/assegai-sdk/actions/workflows/ci.yaml/badge.svg)](https://github.com/AssegaiLabs/assegai-sdk/actions/workflows/ci.yaml)
+[![CI](https://github.com/AssegaiLabs/assegailabs-sdk/actions/workflows/ci.yaml/badge.svg)](https://github.com/AssegaiLabs/assegailabs-sdk/actions/workflows/ci.yaml)
 
 SDK for building agents in the [Assegai Agent Sandbox](https://assegailabs.xyz/).
 
