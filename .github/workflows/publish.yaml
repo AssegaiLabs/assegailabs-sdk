@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write # Required for OIDC trusted publishing
+      id-token: write 
     
     steps:
       - name: Checkout code
@@ -40,4 +40,4 @@ jobs:
           echo "✅ All build outputs present"
       
       - name: Publish to npm (Trusted Publishing)
-        run: npm publish --access public
+        run: npm publish --provenance --access public
